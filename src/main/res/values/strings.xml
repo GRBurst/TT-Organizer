@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!--<string name="red">Red alert!</string>-->
+	<string name="app_name">TTROrganizer</string>
+    <string name="app_desc">TTROrganizer - A FOSS random number generator.</string>
+</resources>
