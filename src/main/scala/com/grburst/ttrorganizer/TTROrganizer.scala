@@ -22,6 +22,10 @@ import macroid.viewable._ //Listable
 import macroid.FullDsl.{text => txt, id => mid,_}
 import macroid.Transformer.Layout
 
+import com.fortysevendeg.macroid.extras._
+import com.fortysevendeg.macroid.extras.LinearLayoutTweaks._
+import com.fortysevendeg.macroid.extras.ViewTweaks._
+
 import net.ruippeixotog.scalascraper.browser.JsoupBrowser
 import net.ruippeixotog.scalascraper.model.Element
 import net.ruippeixotog.scalascraper.dsl.DSL._
@@ -43,24 +47,28 @@ case class Event(sDate:String
 
 trait Styles {
 
-  def ttrDataListable(implicit ctx: ActivityContext, appCtx: AppContext):Listable[Event, HorizontalLinearLayout] =
+  def ttrDataListable(implicit ctx: ActivityContext, appCtx: AppContext):Listable[Event, VerticalLinearLayout] =
     Listable[Event].tr{
-      l[HorizontalLinearLayout](
-        w[TextView] <~ padding(left = 4 dp), //<~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f),
-        w[TextView] <~ padding(left = 4 dp),
-        w[TextView] <~ padding(left = 4 dp),
-        w[TextView] <~ padding(left = 4 dp),
-        w[TextView] <~ padding(left = 4 dp)
+      l[VerticalLinearLayout](
+        w[TextView],
+        l[HorizontalLinearLayout](
+          w[TextView] <~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f),
+          w[TextView] <~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f),  //<~ gravity(Gravity.CENTER),
+          w[TextView] <~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f),
+          w[TextView] <~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f),
+          w[TextView] <~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f)
+        )
       )
     } (event => Transformer {
-      case Layout(w1: TextView, w2: TextView, w3: TextView, w4: TextView, w5: TextView ) =>
-        Ui.sequence(
-          w1 <~ txt(s"${event.sDate}") <~ On.click(w1 <~ hide),
-          w2 <~ txt(s"${event.event}") <~ On.click(w2 <~ hide),
-          w3 <~ txt(s"${event.bilanz}") <~ On.click(w3 <~ hide),
-          w4 <~ txt(s"${event.ttr}") <~ On.click(w4 <~ hide),
-          w5 <~ txt(s"${event.ttrDiff}") <~ On.click(w5 <~ hide)
-        )
+      case Layout(w1: TextView, Layout(w2: TextView, w3: TextView, w4: TextView, w5: TextView, w6: TextView)) =>
+          Ui.sequence(
+            w1 <~ txt(s"${event.event}"),
+            w2 <~ txt(s"${event.lDate}"),
+            w3 <~ txt(s"${event.bilanz}"),
+            w4 <~ txt(s"${event.ttr}"),
+            w5 <~ txt(s"${event.ttrDiff}"),
+            w6 <~ txt(s"${event.ttr + event.ttrDiff}")
+          )
     })
 
 }
@@ -84,25 +92,33 @@ class TTROrganizer extends Activity with Styles with IdGeneration with Contexts[
 
     setContentView {
       getUi {
-        l[LinearLayout](
+        l[VerticalLinearLayout](
           w[TextView] <~ wire(ts) <~ Some(txt("MyTischtennis.de event parser")),
+          w[TextView] <~ txt("Begegnung"),
+          l[HorizontalLinearLayout](
+            w[TextView] <~ txt("Datum") <~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f),
+            w[TextView] <~ txt("Bilanz") <~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f),
+            w[TextView] <~ txt("Alter TTR") <~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f),
+            w[TextView] <~ txt("TTR Diff") <~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f),
+            w[TextView] <~ txt("Neuer TTR") <~ lp[LinearLayout](MATCH_PARENT, WRAP_CONTENT, 0.2f)
+          ),
           w[ListView] <~ ttrDataListable.listAdapterTweak(ttrData.flatten)
-          // , l[ScrollView](
-          //     l[TableLayout](
-          //       ttrData.flatten.map{
-          //         e =>
-          //           l[TableRow](
-          //             w[TextView] <~ txt(e.sDate) <~ layoutParams[TableRow](0)
-          //             , w[TextView] <~ txt(e.event) <~ layoutParams[TableRow](1) <~ padding(left = 4 dp)
-          //             , w[TextView] <~ txt(e.bilanz) <~ layoutParams[TableRow](2)
-          //             , w[TextView] <~ txt(e.ttr.toString) <~ layoutParams[TableRow](3)
-          //             , w[TextView] <~ txt(e.ttrDiff.toString) <~ layoutParams[TableRow](4)
-          //           ) <~ mid(Id.tableRow) <~ padding(top = 8 dp)
-          //       }:_*
-          //       // <~ ttrDataListable.listAdapterTweak(ttrData.flatten)
-          //     ) //<~ layoutParams[TableLayout](shrinkColumns("1"))
-          // )
-        ) <~ vertical
+        // , l[ScrollView](
+        //     l[TableLayout](
+        //       ttrData.flatten.map{
+        //         e =>
+        //           l[TableRow](
+        //             w[TextView] <~ txt(e.sDate) <~ layoutParams[TableRow](0)
+        //             , w[TextView] <~ txt(e.event) <~ layoutParams[TableRow](1) <~ padding(left = 4 dp)
+        //             , w[TextView] <~ txt(e.bilanz) <~ layoutParams[TableRow](2)
+        //             , w[TextView] <~ txt(e.ttr.toString) <~ layoutParams[TableRow](3)
+        //             , w[TextView] <~ txt(e.ttrDiff.toString) <~ layoutParams[TableRow](4)
+        //           ) <~ mid(Id.tableRow) <~ padding(top = 8 dp)
+        //       }:_*
+        //       // <~ ttrDataListable.listAdapterTweak(ttrData.flatten)
+        //     ) //<~ layoutParams[TableLayout](shrinkColumns("1"))
+        // )
+      ) <~ padding(left = 4 dp)
       }
     }
   }
