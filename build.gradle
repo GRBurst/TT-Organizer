@@ -31,7 +31,7 @@ android {
 
     defaultConfig {
         applicationId "com.grburst.ttrorganizer"
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 16
         versionCode 1
         versionName "1.0"
@@ -73,8 +73,9 @@ dependencies {
     compile "org.scala-lang:scala-library:2.11.8"
     compile "org.scaloid:scaloid_2.11:4.0"
     compile "net.ruippeixotog:scala-scraper_2.11:1.0.0"
-    compile 'org.macroid:macroid_2.11:2.0.0-M4'
-    compile 'org.macroid:macroid-viewable_2.11:2.0.0-M4'
+    compile "org.macroid:macroid_2.11:2.0.0-M4"
+    compile "org.macroid:macroid-viewable_2.11:2.0.0-M4"
+    compile "com.fortysevendeg:macroid-extras_2.11:0.3"
 }
 
 task getConfigs << {
