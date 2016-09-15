@@ -1,1 +1,1 @@
-TTRParser - A FOSS parser library for mytischtennis.de
+TTR-Organizer - A FOSS parser library for mytischtennis.de
