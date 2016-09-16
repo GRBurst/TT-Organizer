@@ -30,9 +30,9 @@ class EventDetail extends SActivity with Styles with Contexts[Activity] {
   def ttrMatchesListable():Listable[TTRMatch, HorizontalLinearLayout] =
     Listable[TTRMatch].tr{
         l[HorizontalLinearLayout](
-          w[TextView] <~ l_weight(0.35f),
+          w[TextView] <~ l_weight(0.33f),
           w[TextView] <~ l_weight(0.40f),
-          w[TextView] <~ l_weight(0.25f)
+          w[TextView] <~ l_weight(0.27f)
         )
     } (ttrmatch => Transformer {
       case Layout(w1: TextView, w2: TextView, w3: TextView) =>

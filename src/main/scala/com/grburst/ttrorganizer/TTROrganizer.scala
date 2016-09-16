@@ -1,37 +1,13 @@
 package com.grburst.ttrorganizer
 
+import android.app.Activity
+import android.os.Bundle
+
 import org.scaloid.common._
 
-import android.os.Bundle
-import android.widget._
-import android.view.ViewGroup._
-import android.view.ViewGroup.LayoutParams._
-import android.view.{Gravity, View}
-import android.app.Activity
-import android.graphics.Color
-import android.text.InputType
-
 import macroid._
-import macroid.IdGeneration
-import macroid.Ui
-import macroid.contrib._
-import macroid.contrib.Layouts._
-import macroid.viewable._ //Listable
-import macroid.FullDsl.{text => txt, id => mid, toast => mtoast, _}
-import macroid.Transformer.Layout
 
-// import com.fortysevendeg.macroid.extras._
-import com.fortysevendeg.macroid.extras.LinearLayoutTweaks._
-import com.fortysevendeg.macroid.extras.ViewTweaks._
-import com.fortysevendeg.macroid.extras.TextTweaks._
-
-import net.ruippeixotog.scalascraper.browser.JsoupBrowser
-import net.ruippeixotog.scalascraper.model.Element
-import net.ruippeixotog.scalascraper.dsl.DSL._
-import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
-import net.ruippeixotog.scalascraper.dsl.DSL.Parse._
-
-class TTROrganizer extends SActivity with Styles with IdGeneration with Contexts[Activity] {
+class TTROrganizer extends SActivity with Contexts[SActivity] {
 
   override def onCreate(savedInstanceState: Bundle) = {
     super.onCreate(savedInstanceState)
@@ -43,7 +19,7 @@ class TTROrganizer extends SActivity with Styles with IdGeneration with Contexts
       SButton("Favoriten")
       SButton("Vereinsrangliste")
       SButton("Liga-Rangliste")
-      SButton("TTR-Rechner")
+      SButton("TTR-Rechner", SIntent[TTRCalculator].start[TTRCalculator])
       SButton("Spielsimulation")
       SButton("Suche")
     }

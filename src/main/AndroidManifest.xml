@@ -22,5 +22,8 @@
         <activity android:name="EventDetail"
             android:label="EventDetail">
         </activity>
+        <activity android:name="TTRCalculator"
+            android:label="TTRCalculator">
+        </activity>
     </application>
 </manifest>
