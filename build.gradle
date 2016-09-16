@@ -1,3 +1,6 @@
+
+buildDir = "/tmp"
+
 buildscript {
     repositories {
         mavenCentral()
