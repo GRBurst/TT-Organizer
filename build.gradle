@@ -18,6 +18,7 @@ repositories {
 
 apply plugin: "com.android.application"
 apply plugin: "jp.leafytree.android-scala"
+//apply plugin: 'scala'
 
 android {
     // Can be built with API Level 16 or higher, while this app retains runtime compatibility from API Level 10. Please refer to targetSdkVersion property
@@ -72,13 +73,20 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy.force "org.scalaz:scalaz-core_2.11:7.2.2"
+    resolutionStrategy.force "org.scala-lang.modules:scala-xml_2.11:1.0.5"
+}
+
 dependencies {
+    testCompile "org.specs2:specs2-core_2.11:3.8.5"
     compile "org.scala-lang:scala-library:2.11.8"
     compile "org.scaloid:scaloid_2.11:4.0"
     compile "net.ruippeixotog:scala-scraper_2.11:1.0.0"
     compile "org.macroid:macroid_2.11:2.0.0-M4"
     compile "org.macroid:macroid-viewable_2.11:2.0.0-M4"
     compile "com.fortysevendeg:macroid-extras_2.11:0.3"
+    //compile "com.fortysevendeg:macroid-extras_2.11:0.4-SNAPSHOT"
 }
 
 task getConfigs << {
@@ -119,3 +127,13 @@ tasks.whenTaskAdded { theTask ->
         theTask.dependsOn "getConfigs"
     }
 }
+
+
+//task specs(type: JavaExec, dependsOn: testClasses) {
+//    main = 'org.specs2.files'
+//    args = ['console']
+//    classpath sourceSets.main.runtimeClasspath
+//    classpath sourceSets.test.runtimeClasspath
+//    classpath configurations.testRuntime
+//    classpath configurations.runtime
+//}
