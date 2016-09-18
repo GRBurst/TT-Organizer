@@ -27,6 +27,9 @@
         <activity android:name="TTRCalculator"
             android:label="TTRCalculator">
         </activity>
+        <activity android:name="LeagueRanking"
+            android:label="LeagueRanking">
+        </activity>
         <activity android:name="ClubRanking"
             android:label="ClubRanking">
         </activity>
