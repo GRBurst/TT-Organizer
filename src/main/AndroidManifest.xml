@@ -3,6 +3,8 @@
     package="com.grburst.ttrorganizer"
     android:versionCode="1"
     android:versionName="1.0">
+    <uses-sdk android:targetSdkVersion="16" android:minSdkVersion="14"/>
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"

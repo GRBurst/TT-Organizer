@@ -12,7 +12,6 @@ import android.graphics.Color
 import android.text.InputType
 
 import macroid._
-import macroid.IdGeneration
 import macroid.Ui
 import macroid.contrib._
 import macroid.contrib.Layouts._
@@ -68,8 +67,7 @@ class Events extends SActivity with Styles with Contexts[Activity] {
     val eventParser = EventsParser()
 
     setContentView {
-      getUi {
-        l[VerticalLinearLayout](
+        (l[VerticalLinearLayout](
           w[TextView] <~ wire(ts) <~ Some(txt("MyTischtennis.de event parser")),
           w[TextView] <~ txt(eventParser.currTTR) <~ tvGravity(Gravity.CENTER),
           w[TextView] <~ txt("Begegnung"),
@@ -82,8 +80,8 @@ class Events extends SActivity with Styles with Contexts[Activity] {
           ),
         w[TextView] <~ lp[LinearLayout](MATCH_PARENT, 1 dp) <~ BgTweaks.color(Color.WHITE),
         w[ListView] <~ ttrEventsListable.listAdapterTweak(eventParser.events())
-      ) <~ padding(left = 4 dp, right = 4 dp)
-      }
+        ) <~ padding(left = 4 dp, right = 4 dp)
+      ).get
     }
   }
 

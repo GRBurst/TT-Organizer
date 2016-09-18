@@ -12,7 +12,6 @@ import android.graphics.Color
 import android.text.InputType
 
 import macroid._
-import macroid.IdGeneration
 import macroid.Ui
 import macroid.contrib._
 import macroid.contrib.Layouts._
@@ -50,8 +49,7 @@ class EventDetail extends SActivity with Styles with Contexts[Activity] {
     val eventDetailParser = EventDetailParser()
 
     setContentView {
-      getUi {
-        l[VerticalLinearLayout](
+        (l[VerticalLinearLayout](
           w[TextView] <~ txt("Spiele / Matches"),
           l[HorizontalLinearLayout](
             w[TextView] <~ txt("Name")      <~ l_weight(0.33f),
@@ -61,7 +59,7 @@ class EventDetail extends SActivity with Styles with Contexts[Activity] {
         w[TextView] <~ lp[LinearLayout](MATCH_PARENT, 1 dp) <~ BgTweaks.color(Color.WHITE),
         w[ListView] <~ ttrMatchesListable.listAdapterTweak(eventDetailParser.matches())
       ) <~ padding(left = 4 dp, right = 4 dp)
-      }
+      ).get
     }
 
   }

@@ -31,7 +31,6 @@ case class SamplePlayer(ttr:Int,
   verein:String,
   ak:Int = 16)
 
-
 class TTRCalculator extends SActivity with Styles with Contexts[Activity] {
 
   val player = SamplePlayer(1800, 1, 1, "Blub", "TTV Test", 16)
@@ -89,8 +88,7 @@ class TTRCalculator extends SActivity with Styles with Contexts[Activity] {
     var wRes = slot[TextView]
 
     setContentView {
-      getUi {
-        l[VerticalLinearLayout](
+        (l[VerticalLinearLayout](
           w[TextView] <~ text("TTR Rechner"),
           l[VerticalLinearLayout](
             l[HorizontalLinearLayout](
@@ -114,7 +112,7 @@ class TTRCalculator extends SActivity with Styles with Contexts[Activity] {
           w[TextView] <~ text("Neuer TTR") <~ size(25) <~ matchWidth <~ Tweak[TextView](_.setGravity(Gravity.CENTER_HORIZONTAL)),
           w[TextView] <~ wire(wRes) <~ size(50) <~ matchWidth <~ Tweak[TextView](_.setGravity(Gravity.CENTER_HORIZONTAL))
         ) <~ padding(left = 4 dp, right = 4 dp)
-      }
+      ).get
     }
   }
 
