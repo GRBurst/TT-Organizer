@@ -27,5 +27,8 @@
         <activity android:name="TTRCalculator"
             android:label="TTRCalculator">
         </activity>
+        <activity android:name="ClubRanking"
+            android:label="ClubRanking">
+        </activity>
     </application>
 </manifest>
