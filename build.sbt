@@ -4,7 +4,7 @@ import android.Keys._
 android.Plugin.androidBuild
 
 javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 scalacOptions in Compile += "-feature"
 
 updateCheck in Android := {} // disable update check
@@ -31,7 +31,7 @@ install <<= install in Android
 
 libraryDependencies ++= Seq(
   "org.apache.maven" % "maven-ant-tasks" % "2.1.3" % "test",
-  "org.robolectric" % "robolectric" % "3.0" % "test",
+  "org.robolectric" % "robolectric" % "3.1.1" % "test",
   "junit" % "junit" % "4.12" % "test",
   "com.novocode" % "junit-interface" % "0.11" % "test"
 )
