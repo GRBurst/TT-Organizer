@@ -40,6 +40,13 @@ class TTRCalculator extends SActivity with Styles with Contexts[Activity] {
   // no graded match in 365 days => +4 for 15 matches
   // Nachwuchs-Ausgleich = 0 => newTTR + 2
 
+  //TODO:
+  //  - Add advanced options to calculation
+  //  - Implement TextWatcher to automatically update new ttr with 4 numbers are entered
+  //  - Only add checkbox if number field is not empty
+  //  - Automatically recalculate if checkbox is changed
+  //  - Listview for opponents -> currently if #opponenets > 5 new ttr not viewable anymore
+
   def prob(playerA: Double, playerB: Double): Double = 1.0 / (1.0 + Math.pow(10, (playerB - playerA) / 150.0))
 
   def calcNewTTR(ownTTR:Double, oppTTR: List[Double], victories:Int, ak:Int, na:Int):Int = (ownTTR + Math.round((victories - (oppTTR.map(o => prob(ownTTR, o))).sum) * ak) + na).toInt
