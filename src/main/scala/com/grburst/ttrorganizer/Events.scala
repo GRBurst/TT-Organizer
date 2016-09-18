@@ -16,7 +16,7 @@ import macroid.Ui
 import macroid.contrib._
 import macroid.contrib.Layouts._
 import macroid.viewable._ //Listable
-import macroid.FullDsl.{text => txt, id => mid,_}
+import macroid.FullDsl._
 import macroid.Transformer.Layout
 
 // import com.fortysevendeg.macroid.extras._
@@ -50,12 +50,12 @@ class Events extends SActivity with Styles with Contexts[Activity] {
     } (event => Transformer {
       case Layout(w1: TextView, Layout(w2: TextView, w3: TextView, w4: TextView, w5: TextView, w6: TextView)) =>
           Ui.sequence(
-            w1 <~ txt(s"${event.name}"),// <~ On.click(w1 <~ v),
-            w2 <~ txt(s"${event.lDate}"),
-            w3 <~ txt(s"${event.bilanz}"),
-            w4 <~ txt(s"${event.ttr}"),
-            w5 <~ txt(s"${event.ttrDiff}") <~ TextTweaks.color(if(event.ttrDiff < 0) Color.RED else Color.GREEN),
-            w6 <~ txt(s"${event.ttr + event.ttrDiff}")
+            w1 <~ text(s"${event.name}"),// <~ On.click(w1 <~ v),
+            w2 <~ text(s"${event.lDate}"),
+            w3 <~ text(s"${event.bilanz}"),
+            w4 <~ text(s"${event.ttr}"),
+            w5 <~ text(s"${event.ttrDiff}") <~ TextTweaks.color(if(event.ttrDiff < 0) Color.RED else Color.GREEN),
+            w6 <~ text(s"${event.ttr + event.ttrDiff}")
           )
     })
 
@@ -68,15 +68,15 @@ class Events extends SActivity with Styles with Contexts[Activity] {
 
     setContentView {
         (l[VerticalLinearLayout](
-          w[TextView] <~ wire(ts) <~ Some(txt("MyTischtennis.de event parser")),
-          w[TextView] <~ txt(eventParser.currTTR) <~ tvGravity(Gravity.CENTER),
-          w[TextView] <~ txt("Begegnung"),
+          w[TextView] <~ wire(ts) <~ Some(text("MyTischtennis.de event parser")),
+          w[TextView] <~ text(eventParser.currTTR) <~ tvGravity(Gravity.CENTER),
+          w[TextView] <~ text("Begegnung"),
           l[HorizontalLinearLayout](
-            w[TextView] <~ txt("Datum")     <~ l_weight(0.19f),
-            w[TextView] <~ txt("Bilanz")    <~ l_weight(0.21f),
-            w[TextView] <~ txt("Alter TTR") <~ l_weight(0.2f),
-            w[TextView] <~ txt("TTR Diff")  <~ l_weight(0.2f),
-            w[TextView] <~ txt("Neuer TTR") <~ l_weight(0.2f)
+            w[TextView] <~ text("Datum")     <~ l_weight(0.19f),
+            w[TextView] <~ text("Bilanz")    <~ l_weight(0.21f),
+            w[TextView] <~ text("Alter TTR") <~ l_weight(0.2f),
+            w[TextView] <~ text("TTR Diff")  <~ l_weight(0.2f),
+            w[TextView] <~ text("Neuer TTR") <~ l_weight(0.2f)
           ),
         w[TextView] <~ lp[LinearLayout](MATCH_PARENT, 1 dp) <~ BgTweaks.color(Color.WHITE),
         w[ListView] <~ ttrEventsListable.listAdapterTweak(eventParser.events())
