@@ -1,4 +1,4 @@
-name := "TTR Organizer"
+name := "TT-Organizer"
 
 import android.Keys._
 android.Plugin.androidBuild

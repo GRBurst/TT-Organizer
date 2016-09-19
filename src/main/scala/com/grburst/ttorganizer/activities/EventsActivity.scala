@@ -1,4 +1,7 @@
-package com.grburst.ttrorganizer
+package com.grburst.ttorganizer.activities
+
+import com.grburst.ttorganizer.parser.EventsParser
+import com.grburst.ttorganizer.util.TTEvent
 
 import org.scaloid.common._
 
@@ -33,10 +36,10 @@ trait Styles {
 
 }
 
-class Events extends SActivity with Styles with Contexts[Activity] {
+class EventsActivity extends SActivity with Contexts[Activity] with Styles {
 
-  def ttrEventsListable():Listable[TTREvent, VerticalLinearLayout] =
-    Listable[TTREvent].tr{
+  def ttrEventsListable():Listable[TTEvent, VerticalLinearLayout] =
+    Listable[TTEvent].tr{
       l[VerticalLinearLayout](
         w[TextView],
         l[HorizontalLinearLayout](
@@ -79,7 +82,7 @@ class Events extends SActivity with Styles with Contexts[Activity] {
             w[TextView] <~ text("Neuer TTR") <~ l_weight(0.2f)
           ),
         w[TextView] <~ lp[LinearLayout](MATCH_PARENT, 1 dp) <~ BgTweaks.color(Color.WHITE),
-        w[ListView] <~ ttrEventsListable.listAdapterTweak(eventParser.events())
+        w[ListView] <~ ttrEventsListable.listAdapterTweak(eventParser.get())
         ) <~ padding(left = 4 dp, right = 4 dp)
       ).get
     }

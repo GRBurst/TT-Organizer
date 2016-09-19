@@ -1,4 +1,4 @@
-package com.grburst.ttrorganizer
+package com.grburst.ttorganizer.util
 
 case class TTMatch(
   opponent: String,
@@ -22,3 +22,15 @@ case class TTPlayer(
   club: String,
   clubId: Int,
   ttr: Int)
+
+case class TTEvent(sDate:String,
+  lDate:String,
+  name:String,
+  id:Int,
+  ak:String,
+  bilanz:String,
+  gewinnerwartung:String,
+  typ:String,
+  ttr:Int,
+  ttrDiff:Int)
+

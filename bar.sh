@@ -1,7 +1,7 @@
 #!/bin/bash -e
-PACK=com.grburst.ttrorganizer
+PACK=com.grburst.ttorganizer
 ACT=.TTROrganizer
-APP=/tmp/outputs/apk/ttrorganizer
+APP=/tmp/outputs/apk/ttorganizer
 BUILD=packageDebug
 if (( $# ==  1 )); then
     if [[ "$1" == "d" ]]; then

@@ -1,6 +1,6 @@
-package com.grburst.ttrorganizer
+package com.grburst.ttorganizer.activities
 
-import com.grburst.ttrorganizer.androidHelper._
+import com.grburst.ttorganizer.util.androidHelper._
 
 import scala.math.{ pow, round }
 import scala.util.Try
@@ -33,7 +33,7 @@ import com.fortysevendeg.macroid.extras.LinearLayoutTweaks._
 //  - Automatically recalculate if checkbox is changed
 //  - Listview for opponents -> currently if #opponenets > 5 new ttr not viewable anymore
 
-class TTRCalculator extends SActivity with Styles with Contexts[Activity] {
+class CalculatorActivity extends SActivity with Contexts[Activity] with Styles {
 
   case class CalcField(eSlot: Option[android.widget.EditText], cSlot: Option[android.widget.CheckBox]) {
 

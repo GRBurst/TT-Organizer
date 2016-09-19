@@ -1,5 +1,7 @@
-package com.grburst.ttrorganizer
-import com.grburst.ttrorganizer.androidHelper._
+package com.grburst.ttorganizer.parser
+
+import com.grburst.ttorganizer.util.androidHelper.StringHelper
+import com.grburst.ttorganizer.util.TTPlayer
 
 import scala.util.Try
 

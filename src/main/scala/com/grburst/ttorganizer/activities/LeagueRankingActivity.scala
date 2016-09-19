@@ -1,4 +1,7 @@
-package com.grburst.ttrorganizer
+package com.grburst.ttorganizer.activities
+
+import com.grburst.ttorganizer.parser.LeagueRankingParser
+import com.grburst.ttorganizer.util.TTPlayer
 
 import org.scaloid.common._
 
@@ -13,7 +16,7 @@ import macroid.contrib.Layouts._      // [x]LinearLayout
 import macroid.viewable._             //Listable
 import macroid.Transformer.Layout
 
-class ClubRanking extends SActivity with Styles with Contexts[Activity] {
+class LeagueRankingActivity extends SActivity with Contexts[Activity] with Styles {
 
   def ttPlayerListable():Listable[TTPlayer, HorizontalLinearLayout] =
     Listable[TTPlayer].tr{
@@ -37,7 +40,7 @@ class ClubRanking extends SActivity with Styles with Contexts[Activity] {
   override def onCreate(savedInstanceState: Bundle) = {
     super.onCreate(savedInstanceState)
 
-    val lrParser = ClubRankingParser()
+    val lrParser = LeagueRankingParser()
 
     setContentView {
         (l[VerticalLinearLayout](

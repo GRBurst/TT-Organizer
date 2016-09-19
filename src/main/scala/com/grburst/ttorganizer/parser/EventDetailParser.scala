@@ -1,4 +1,6 @@
-package com.grburst.ttrorganizer
+package com.grburst.ttorganizer.parser
+
+import com.grburst.ttorganizer.util.TTMatch
 
 import net.ruippeixotog.scalascraper.browser.JsoupBrowser
 import net.ruippeixotog.scalascraper.model.Element
@@ -12,7 +14,7 @@ case class EventDetailParser(url: String = "/storage/emulated/0/mytischtennis.de
   val browser = JsoupBrowser()
   val eventDoc = browser.parseFile(url + id)
 
-  def matches(): List[TTMatch] = {
+  def get(): List[TTMatch] = {
     val ttrTable = eventDoc >> element(".table-striped") >> element("tbody") >> elementList("tr")
     val ttrData: List[Option[TTMatch]] = ttrTable.map(x => (x >> elementList("td")).toList match {
       case List(o, r, s1, s2, s3, s4, s5, s6, s7, g) => {

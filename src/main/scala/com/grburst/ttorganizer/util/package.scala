@@ -1,4 +1,4 @@
-package com.grburst.ttrorganizer
+package com.grburst.ttorganizer.util
 
 import scala.util.Try
 
