@@ -26,8 +26,8 @@ import com.fortysevendeg.macroid.extras.TextTweaks._
 
 class EventDetail extends SActivity with Styles with Contexts[Activity] {
 
-  def ttrMatchesListable():Listable[TTRMatch, HorizontalLinearLayout] =
-    Listable[TTRMatch].tr{
+  def ttrMatchesListable():Listable[TTMatch, HorizontalLinearLayout] =
+    Listable[TTMatch].tr{
         l[HorizontalLinearLayout](
           w[TextView] <~ l_weight(0.33f),
           w[TextView] <~ l_weight(0.40f),
