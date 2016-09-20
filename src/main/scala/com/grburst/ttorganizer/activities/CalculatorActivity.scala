@@ -1,6 +1,7 @@
 package com.grburst.ttorganizer.activities
 
 import com.grburst.ttorganizer.util.androidHelper._
+import com.grburst.ttorganizer.util.Styles
 
 import scala.math.{ pow, round }
 import scala.util.Try
@@ -35,6 +36,7 @@ import com.fortysevendeg.macroid.extras.LinearLayoutTweaks._
 
 class CalculatorActivity extends SActivity with Contexts[Activity] with Styles {
 
+  // Use slotted listable instead
   case class CalcField(eSlot: Option[android.widget.EditText], cSlot: Option[android.widget.CheckBox]) {
 
     var ttrValue = eSlot

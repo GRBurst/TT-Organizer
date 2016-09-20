@@ -1,6 +1,6 @@
-package com.grburst.ttorganizer.util
+package com.grburst.ttorganizer.libtt
 
-case class TTMatch(
+case class Match(
   opponent: String,
   oTTR: Int,
   oId: Int,
@@ -14,7 +14,7 @@ case class TTMatch(
   set7: String,
   ge: Float)
 
-case class TTPlayer(
+case class Player(
   playerId: Int,
   rank: String,
   dRank: Int,
@@ -23,7 +23,7 @@ case class TTPlayer(
   clubId: Int,
   ttr: Int)
 
-case class TTEvent(sDate:String,
+case class Event(sDate:String,
   lDate:String,
   name:String,
   id:Int,

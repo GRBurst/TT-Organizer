@@ -1,6 +1,6 @@
-package com.grburst.ttorganizer.parser
+package com.grburst.ttorganizer.libtt.parser
 
-import com.grburst.ttorganizer.util.TTPlayer
+import com.grburst.ttorganizer.libtt.Player
 import com.grburst.ttorganizer.util.androidHelper.StringHelper
 
 import scala.util.Try
@@ -21,15 +21,15 @@ case class ClubRankingParser(url: String = "/storage/emulated/0/mytischtennis.de
   val browser = JsoupBrowser()
   val eventDoc = browser.parseFile(url)
 
-  def get(): List[TTPlayer] = {
+  def get(): List[Player] = {
 
     val ttrTable = eventDoc >> element(".table-mytt") >> elementList("tr")
-    val ttrData: List[Option[TTPlayer]] = ttrTable.map(x => (x >> elementList("td")).toList match {
+    val ttrData: List[Option[Player]] = ttrTable.map(x => (x >> elementList("td")).toList match {
       case List(r, d, n, c, t, s) => {
         val pId: Array[String] = (n >> attr("data-tooltipdata")("a")).split(";")
         val uri = Uri.parse(c >> attr("href")("a"));
 
-        Some(TTPlayer(pId(0).toInt, r.text, d.text.toIntOption.getOrElse(-1), pId(2), c.text, uri.getQueryParameter("clubid").toInt, t.text.toIntOption.getOrElse(-1)))
+        Some(Player(pId(0).toInt, r.text, d.text.toIntOption.getOrElse(-1), pId(2), c.text, uri.getQueryParameter("clubid").toInt, t.text.toIntOption.getOrElse(-1)))
       }
       case _ => None
     })
