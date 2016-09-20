@@ -27,16 +27,38 @@
         </activity>
         <activity android:name="com.grburst.ttorganizer.activities.EventDetailActivity"
             android:label="EventDetail">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity android:name="com.grburst.ttorganizer.activities.CalculatorActivity"
             android:label="Calculator">
-
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity android:name="com.grburst.ttorganizer.activities.LeagueRankingActivity"
             android:label="LeagueRanking">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity android:name="com.grburst.ttorganizer.activities.ClubRankingActivity"
             android:label="ClubRanking">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.grburst.ttorganizer.activities.SearchActivity"
+            android:label="Search">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>
