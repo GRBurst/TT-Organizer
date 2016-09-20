@@ -22,7 +22,7 @@ class TTOrganizer extends SActivity {
       SButton("Liga-Rangliste", SIntent[LeagueRankingActivity].start[LeagueRankingActivity])
       SButton("TTR-Rechner", SIntent[CalculatorActivity].start[CalculatorActivity])
       SButton("Spielsimulation")
-      SButton("Suche")
+      SButton("Suche", SIntent[SearchActivity].start[SearchActivity])
     }
 
 
