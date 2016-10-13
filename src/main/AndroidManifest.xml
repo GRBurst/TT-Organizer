@@ -11,41 +11,52 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:description="@string/app_desc">
-        <activity android:name="com.grburst.ttorganizer.TTOrganizer"
+        <activity android:name="com.grburst.ttorganizer.activities.LoginActivity"
+            android:label="Login">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- <action android:name="android.intent.action.MAIN" /> -->
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            </intent-filter>
+        </activity>
+        <activity android:name="com.grburst.ttorganizer.activities.OrganizerActivity"
             android:label="@string/app_name">
             <intent-filter>
+                <!-- <action android:name="android.intent.action.VIEW" /> -->
+                <!-- <category android:name="android.intent.category.DEFAULT" /> -->
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.grburst.ttorganizer.activities.EventsActivity"
-            android:label="Events">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.grburst.ttorganizer.activities.EventDetailActivity"
-            android:label="EventDetail">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.grburst.ttorganizer.activities.CalculatorActivity"
-            android:label="Calculator">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.grburst.ttorganizer.activities.LeagueRankingActivity"
-            android:label="LeagueRanking">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <!-- <activity android:name="com.grburst.ttorganizer.activities.EventsActivity" -->
+        <!--     android:label="Events"> -->
+        <!--     <intent-filter> -->
+        <!--         <action android:name="android.intent.action.VIEW" /> -->
+        <!--         <category android:name="android.intent.category.DEFAULT" /> -->
+        <!--     </intent-filter> -->
+        <!-- </activity> -->
+        <!-- <activity android:name="com.grburst.ttorganizer.activities.EventDetailActivity" -->
+        <!--     android:label="EventDetail"> -->
+        <!--     <intent-filter> -->
+        <!--         <action android:name="android.intent.action.VIEW" /> -->
+        <!--         <category android:name="android.intent.category.DEFAULT" /> -->
+        <!--     </intent-filter> -->
+        <!-- </activity> -->
+        <!-- <activity android:name="com.grburst.ttorganizer.activities.CalculatorActivity" -->
+        <!--     android:label="Calculator"> -->
+        <!--     <intent-filter> -->
+        <!--         <action android:name="android.intent.action.VIEW" /> -->
+        <!--         <category android:name="android.intent.category.DEFAULT" /> -->
+        <!--     </intent-filter> -->
+        <!-- </activity> -->
+        <!-- <activity android:name="com.grburst.ttorganizer.activities.LeagueRankingActivity" -->
+        <!--     android:label="LeagueRanking"> -->
+        <!--     <intent-filter> -->
+        <!--         <action android:name="android.intent.action.VIEW" /> -->
+        <!--         <category android:name="android.intent.category.DEFAULT" /> -->
+        <!--     </intent-filter> -->
+        <!-- </activity> -->
         <activity android:name="com.grburst.ttorganizer.activities.ClubRankingActivity"
             android:label="ClubRanking">
             <intent-filter>
@@ -53,12 +64,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="com.grburst.ttorganizer.activities.SearchActivity"
-            android:label="Search">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <!-- <activity android:name="com.grburst.ttorganizer.activities.SearchActivity" -->
+        <!--     android:label="Search"> -->
+        <!--     <intent-filter> -->
+        <!--         <action android:name="android.intent.action.VIEW" /> -->
+        <!--         <category android:name="android.intent.category.DEFAULT" /> -->
+        <!--     </intent-filter> -->
+        <!-- </activity> -->
     </application>
 </manifest>

@@ -1,3 +1,4 @@
-addSbtPlugin("com.hanhuy.sbt" % "android-sdk-plugin" % "1.5.19")
+addSbtPlugin("org.scala-android" % "sbt-android" % "1.6.18")
+addSbtPlugin("com.typesafe.sbt" % "sbt-proguard" % "0.2.2")
 
-libraryDependencies += "net.sf.proguard" % "proguard-base" % "5.2.1"
+libraryDependencies += "net.sf.proguard" % "proguard-base" % "5.3"
